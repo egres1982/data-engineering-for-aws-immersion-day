@@ -138,7 +138,7 @@ Download the [lab3 instruction file](/4-Lab-Athena_Quicksight.pdf)
 
 
 ### Checkpoint:
-Sweet! Now you have queried the Data Lake and visualized it in QuickSight. Next, We'll consume the Data Lake via machine learning.
+Sweet! Now you have queried the Data Lake and visualized it in QuickSight. Next, we'll consume the Data Lake via machine learning.
 
 [*^ back to top*](#Requirements)
 
@@ -191,7 +191,7 @@ And gather the following information from the stack output above:
 ## What Happened in 2016
 In the first part of this lab, we will perform the following activities:
 * Load the Green company data for January 2016 into Redshift direct-attached storage (DAS) with COPY.
-* Collect supporting/refuting evidence for the impact of the January, 2016 blizzard on taxi usage.
+* Collect supporting/refuting evidence for the impact of the January 2016 blizzard on taxi usage.
 * The CSV data is by month on Amazon S3. Here's a quick screenshot from the S3 console: 
 ````
 https://s3.console.aws.amazon.com/s3/buckets/us-west-2.serverless-analytics/NYC-Pub/green/?region=us-west-2&tab=overview&prefixSearch=green_tripdata_2016
@@ -321,13 +321,13 @@ https://s3.console.aws.amazon.com/s3/buckets/serverless-analytics/canonical/NY-P
 
 
 ### Create external schema (and DB) for Redshift Spectrum
-Because external tables are stored in a shared Glue Catalog for use within the AWS ecosystem, they can be built and maintained using a few different tools, e.g. Athena, Redshift, and Glue. 
+Because external tables are stored in a shared Glue Catalog for use within the AWS ecosystem, they can be built and maintained using a few different tools, e.g., Athena, Redshift, and Glue. 
 	
 * Use the AWS Glue Crawler to create your external table adb305.ny_pub stored in parquet format under location s3://us-west-2.serverless-analytics/canonical/NY-Pub/.
 
 	1. Navigate to the **Glue Crawler Page**. https://console.aws.amazon.com/glue/home?#catalog:tab=crawlers
 	![](/ee_helper/assets/images/crawler_0.png)
-	1. Click on *Add Crawler*, and enter the crawler name *NYTaxiCrawler* and click *Next*.
+	1. Click on *Add Crawler* and enter the crawler's name *NYTaxiCrawler* and click *Next*.
 	![](/ee_helper/assets/images/crawler_1.png)
 	1. Select *Data stores* as the source type and click *Next*.
 	![](/ee_helper/assets/images/crawler_2.png)
@@ -347,7 +347,7 @@ Because external tables are stored in a shared Glue Catalog for use within the A
 	![](/ee_helper/assets/images/crawler_9.png)
 
 
-* Now that the table has been cataloged, switch back to your Redshift query editor and create an external schema **adb305** pointing to your Glue Catalog Database **spectrumdb**
+* Now that the table has been cataloged, switch back to your Redshift query editor, and create an external schema **adb305** pointing to your Glue Catalog Database **spectrumdb**
 
 <details><summary>Hint</summary>
 <p>
@@ -402,7 +402,7 @@ https://docs.aws.amazon.com/redshift/latest/mgmt/workload-mgmt-config.html
 In the next part of this lab, we will demonstrate how to create a view which has data that is consolidated from S3 via Spectrum and the Redshift direct-attached storage.
 
 ### Create a view 
-Create a view that covers both the January, 2016 Green company DAS table with the historical data residing on S3 to make a single table exclusively for the Green data scientists. Use CTAS to create a table with data from January, 2016 for the Green company. Compare the runtime to populate this with the COPY runtime earlier.
+Create a view that covers both the January 2016 Green company DAS table with the historical data residing on S3 to make a single table exclusively for the Green data scientists. Use CTAS to create a table with data from January 2016 for the Green company. Compare the runtime to populate this with the COPY runtime earlier.
 
 <details><summary>Hint</summary>
 <p>
@@ -450,7 +450,7 @@ Here's the output in case you want to use it:
 
 
 ### Complete populating the table 
-Add to the January, 2016 table with an INSERT/SELECT statement for the other taxi companies.
+Add to the January 2016 table with an INSERT/SELECT statement for the other taxi companies.
 
 <details><summary>Hint</summary>
 <p>
@@ -466,7 +466,7 @@ INSERT INTO workshop_das.taxi_201601 (
 </details>
 
 ### Remove overlaps in the Spectrum table 
-Now that we've loaded all January, 2016 data, we can remove the partitions from the Spectrum table so there is no overlap between the direct-attached storage (DAS) table and the Spectrum table.
+Now that we've loaded all January 2016 data, we can remove the partitions from the Spectrum table so there is no overlap between the direct-attached storage (DAS) table and the Spectrum table.
 
 <details><summary>Hint</summary>
 <p>
@@ -629,14 +629,14 @@ XN Merge  (cost=1000075000042.52..1000075000042.52 rows=1 width=30)
 ## Plan for the Future
 In this final part of this lab, we will compare different strategies for maintaining more recent or *HOT* data within Redshift direct-attached storage, and keeping older *COLD* data in S3 by performing the following steps:
 * Allow for trailing 5 quarters reporting by adding the Q4 2015 data to Redshift DAS:
-	* Anticipating that we’ll want to ”age-off” the oldest quarter on a 3 month basis, architect your DAS table to make this easy to maintain and query.
+	* Anticipating that we’ll want to ”age-off” the oldest quarter on a 3-month basis, architect your DAS table to make this easy to maintain and query.
 	* Adjust your Redshift Spectrum table to exclude the Q4 2015 data.
 * Develop and execute a plan to move the Q4 2015 data to S3.
 	* What are the discrete steps to be performed?
 	* What extra-Redshift functionality must be leveraged?
 	* Simulating the extra-Redshift steps with the existing Parquet data, age-off the Q4 2015 data from Redshift DAS 	and perform any needed steps to maintain a single version of the truth.
 
-* There are several options to accomplish this goal. Anticipating that we’ll want to ”age-off” the oldest quarter on a 3 month basis, architect your DAS table to make this easy to maintain and query. How about something like this?
+* There are several options to accomplish this goal. Anticipating that we’ll want to ”age-off” the oldest quarter on a 3-month basis, architect your DAS table to make this easy to maintain and query. How about something like this?
 
 ````
 CREATE OR REPLACE VIEW adb305_view_NYTaxiRides AS
@@ -677,7 +677,7 @@ SORTKEY(year, month, type) AS
 SELECT * FROM adb305.ny_pub WHERE 1 = 0;
 ````
 
-* And, create a helper table that doesn't include the partition columns from the Redshift Spectrum table.
+* And create a helper table that doesn't include the partition columns from the Redshift Spectrum table.
 
 ````
 CREATE TABLE workshop_das.taxi_loader AS 
@@ -689,7 +689,7 @@ CREATE TABLE workshop_das.taxi_loader AS
 
 ### Parquet copy continued
 
-* The population could be scripted easily; there are also a few different patterns that could be followed.  Below is a script which issues a seperate copy command for each partition where the **type=green**.  Once complete, seperate scripts would need to be used for other **type** partitions.
+* The population could be scripted easily; there are also a few different patterns that could be followed.  Below is a script which issues a separate copy command for each partition where the **type=green**.  Once complete, separate scripts would need to be used for other **type** partitions.
 
 ````
 COPY workshop_das.taxi_loader FROM 's3://us-west-2.serverless-analytics/canonical/NY-Pub/year=2015/month=10/type=green' IAM_ROLE '[Your-Redshift_Role_ARN]' FORMAT AS PARQUET;
