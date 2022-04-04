@@ -2,25 +2,25 @@ Amazon Web Services
 Data Engineering Immersion Day
 ====================================================
 
-Welcome to the lab Instruction!
+Welcome to the lab manual!
 
 ### Requirements:
 
-Instructor Led :
-* AWS account - if you don't have one, please ask your instructor for the login detail.
-* Source RDS (Postgres) details - Your instructor should provide the database information. 
+Instructor-led:
+* AWS account - if you don't have one, please ask your instructor for login details
+* Source RDS (PostgreSQL) - instructor will provide DB's details
 								  
-Self-paced :
-If you want to run pre-requisite steps by yourself:
-* AWS account - if you don't have one, Sign-up for [free AWS account](https://aws.amazon.com/free/?all-free-tier.sort-by=item.additionalFields.SortRank&all-free-tier.sort-order=asc) . All services in this lab are not covered under free tier, so it may incur some minor cost.
-* Follow the instruction in [PreLab-instructor](/PreLab/0.0-PreLab-DMS_instructor_Setup.pdf) to set up a RDS source database yourself. It deploys:
+Self-paced:
+If you want to run prereq steps by yourself:
+* AWS account - if you don't have one, sign-up for [free AWS account](https://aws.amazon.com/free/) . All services in this lab are not covered under free tier, so you may incur minor costs
+* Follow the instruction in [PreLab-instructor](/PreLab/0.0-PreLab-DMS_instructor_Setup.pdf) to set up an RDS source DB yourself. The DB deploys:
  <pre>
-    - A source RDS database environment along with required networking and IAM roles.
-    - Populate the source database with event ticket sales data
+    - A source RDS DB environment along with required networking and IAM roles
+    - Populate the source DB with event ticket sales data
  </pre>
 
    
-Click the **Deploy to AWS** icons below to stand up the RDS database infrastructure. 
+Click the **Deploy to AWS** icons below to stand up the RDS DB infrastructure. 
 
 | Region | Launch Template |
 | ------------ | ------------- | 
@@ -337,7 +337,7 @@ Because external tables are stored in a shared Glue Catalog for use within the A
 	![](/ee_helper/assets/images/crawler_4.png)
 	1. Select *Run on demand* for the frequency.
 	![](/ee_helper/assets/images/crawler_5.png)
-	1. Click on *Add database* and enter the Database of *spectrumdb*
+	1. Click on *Add database* and enter the DB of *spectrumdb*
 	![](/ee_helper/assets/images/crawler_6.png)
 	1. Select all remaining defaults. Once the Crawler has been created, click on *Run Crawler*.
 	![](/ee_helper/assets/images/crawler_7.png)
@@ -347,7 +347,7 @@ Because external tables are stored in a shared Glue Catalog for use within the A
 	![](/ee_helper/assets/images/crawler_9.png)
 
 
-* Now that the table has been cataloged, switch back to your Redshift query editor, and create an external schema **adb305** pointing to your Glue Catalog Database **spectrumdb**
+* Now that the table has been cataloged, switch back to your Redshift query editor, and create an external schema **adb305** pointing to your Glue Catalog DB **spectrumdb**
 
 <details><summary>Hint</summary>
 <p>
