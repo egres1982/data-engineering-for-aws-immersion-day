@@ -12,7 +12,7 @@ Instructor Led :
 								  
 Self-paced :
 If you want to run pre-requisite steps by yourself:
-* AWS account - if you don't have one, Sign-up for [free AWS account](https://aws.amazon.com/free/?all-free-tier.sort-by=item.additionalFields.SortRank&all-free-tier.sort-order=asc) . All sevices in this lab are not covered under free tier, so it may incur some minor cost.
+* AWS account - if you don't have one, Sign-up for [free AWS account](https://aws.amazon.com/free/?all-free-tier.sort-by=item.additionalFields.SortRank&all-free-tier.sort-order=asc) . All services in this lab are not covered under free tier, so it may incur some minor cost.
 * Follow the instruction in [PreLab-instructor](/PreLab/0.0-PreLab-DMS_instructor_Setup.pdf) to set up a RDS source database yourself. It deploys:
  <pre>
     - A source RDS database environment along with required networking and IAM roles.
@@ -34,9 +34,9 @@ __**Ensure your region is US East (N. Virginia)**__
 
 * **AutoComplete DMS lab:** [Skip Workshop Setup & Lab 1](#AutoComplete-DMS-lab)
 * **Workshop Setup:** [Create working environment on AWS](#workshop-setup)
-* **Lab 1:** [Hydrateing the data lake via DMS](#Lab-1---Hydrating-the-data-lake-via-DMS)
+* **Lab 1:** [Hydrating the data lake via DMS](#Lab-1---Hydrating-the-data-lake-via-DMS)
 * **Lab 2:** [Transforming in the data lake with Glue](#lab-2---Transforming-data-with-Glue)
-* **Lab 3:** [Consuming the data lake with Athena & QuickSight](#lab-3---Consuming-data-with-Athena-and-Quicksight)
+* **Lab 3:** [Consuming the data lake with Athena & QuickSight](#lab-3---Consuming-data-with-Athena-and-QuickSight)
 * **Lab 4:** [Machine learning in the data lake](#lab-4---Machine-learning-in-the-data-lake)
 * **Lab 5:** [AWS Lake Formation Lab](#lab-5---AWS-Lake-Formation-Lab)
 * **Lab 6:** [Modernize Data Warehouse with Amazon Redshift Spectrum](#Lab-6---Modernize-Data-Warehouse-with-Amazon-Redshift-Spectrum)
@@ -128,9 +128,9 @@ Nice work!  You've successfully converted CSV raw data to Parquet, and added par
 
 [*^ back to top*](#Requirements)
 
-## Lab 3 - Consuming data with Athena and Quicksight
+## Lab 3 - Consuming data with Athena and QuickSight
 
-Download the [lab3 instruction file](/4-Lab-Athena_Quicksight.pdf) 
+Download the [lab3 instruction file](/4-Lab-Athena_QuickSight.pdf) 
 
 ### Here's what you're going to work on in lab 3:
 
@@ -166,7 +166,7 @@ Download the [lab5 instruction file](/5-Lab-LakeFormation.pdf)
 
 ## Lab 6 - Modernize Data Warehouse with Amazon Redshift Spectrum
 
-In this lab, we show you how to query petabytes of data with Amazon Redshift and exabytes of data in your Amazon S3 data lake, without loading or moving objects. We will also demonstrate how you can leverage views which union data in direct attached storage as well as in your S3 Datalake to create a single source of truth.  Finally, we will demonstrate strategies for aging off old data into S3 and maintaining only the most recent data in Amazon Redshift direct attached storage.
+In this lab, we show you how to query petabytes of data with Amazon Redshift and exabytes of data in your Amazon S3 data lake, without loading or moving objects. We will also demonstrate how you can leverage views which union data in direct attached storage as well as in your S3 data lake to create a single source of truth.  Finally, we will demonstrate strategies for aging off old data into S3 and maintaining only the most recent data in Amazon Redshift direct attached storage.
 
 ## Contents
 * Before You Begin
