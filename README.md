@@ -2,7 +2,7 @@ Amazon Web Services
 Data Engineering Immersion Day
 ====================================================
 
-Welcome to the lab manual!
+Welcome to the lab manual.
 
 ### Requirements:
 
